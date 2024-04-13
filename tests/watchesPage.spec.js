@@ -19,7 +19,6 @@ test.describe('watchesPage', () => {
         await page.waitForSelector('.products .product-items li');
         const allTextItems = await page.locator('.products .product-items .product-item-link').allTextContents();
         for (const item of allTextItems) {
-            console.log('Item name:', item);
             expect(item).toContain('Watch');
         }
     })
