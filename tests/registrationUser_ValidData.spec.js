@@ -20,6 +20,8 @@ test.describe('Registration user with valid data', () => {
 
         await page.goto('/');
         await page.getByRole('link', {name: 'Create an Account'}).click();
+
+    
     });
 
 
@@ -38,6 +40,9 @@ test.describe('Registration user with valid data', () => {
 
 
         await expect(page.locator('.base[data-ui-id="page-title-wrapper"]')).toHaveText('My Account');
-      //  await expect(page.locator('.box-content > p').nth(1)).toHaveText(email);
+
+        const thanksMessage = page.getByRole("alert").getByText("Thank you for registering with Main Website Store.");
+        await expect(thanksMessage).toHaveText("Thank you for registering with Main Website Store.");
+
     });
-});
+})
