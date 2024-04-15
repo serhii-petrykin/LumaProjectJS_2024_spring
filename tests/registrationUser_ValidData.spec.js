@@ -25,7 +25,7 @@ test.describe('Registration user with valid data', () => {
     });
 
 
-    test.only('Check that user can possible to create account with entered all valid fields', async ({ page }) => {
+    test('Check that user can possible to create account with entered all valid fields', async ({ page }) => {
         await page.locator('#firstname').click();
         await page.locator('#firstname').fill(firstName);
         await page.locator('#lastname').click();
