@@ -96,9 +96,8 @@ test.describe('header', () => {
     await expect(welcomeText).toBeVisible()
   })
 
-  test("TC 01.1.1_03 <Header/Header logo> Header has title What's New", async ({page}) => {
+  test("US 04.1.1_02 <Menu/What's New> Visible title What's New", async ({page}) => {
     await expect (page.getByRole('menuitem', {name: "What's New"})).toBeVisible();
-  
   })
 
 })
