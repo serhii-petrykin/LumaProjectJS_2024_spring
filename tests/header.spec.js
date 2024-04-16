@@ -95,5 +95,8 @@ test.describe('header', () => {
     const welcomeText = page.locator('header .logged-in')
     await expect(welcomeText).toBeVisible()
   })
-   
+  
+  test("TC 01.1.1_03 Header has title What's New", async ({page}) => {
+    await expect (page.getByRole('menuitem', {name: "What's New"})).toBeVisible();
+  })
 })
