@@ -96,12 +96,12 @@ test.describe('header', () => {
     await expect(welcomeText).toBeVisible()
   })
 
-  test("TC 01.1.1_03 Header has title What's New", async ({page}) => {
+  test("TC 01.1.1_03 <Header/Header logo> Header has title What's New", async ({page}) => {
     await expect (page.getByRole('menuitem', {name: "What's New"})).toBeVisible();
   
   })
 
-  test("TC 01.1.1_04 Header has title Women", async ({page}) => {
+  test("TC 01.1.1_04 <Header/Header logo> Header has title Women", async ({page}) => {
     await expect (page.getByRole('menuitem', {name: " Women"})).toBeVisible();
   
   })
