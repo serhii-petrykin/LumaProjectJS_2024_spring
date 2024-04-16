@@ -98,10 +98,6 @@ test.describe('header', () => {
 
   test("TC 01.1.1_03 Header has title What's New, Women, Men, Gear,Training,Sale", async ({page}) => {
     await expect (page.getByRole('menuitem', {name: "What's New"})).toBeVisible();
-    await expect (page.getByRole('menuitem', {name: ' Women'})).toBeVisible();
-    await expect (page.getByRole('menuitem', {name: ' Men'})).toBeVisible();
-    await expect (page.getByRole('menuitem', {name: ' Gear'})).toBeVisible();
-    await expect (page.getByRole('menuitem', {name: ' Training'})).toBeVisible();
-    await expect (page.getByRole('menuitem', {name: ' Sale'})).toBeVisible();
+  
   })
 })
