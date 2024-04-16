@@ -106,4 +106,14 @@ test.describe('header', () => {
   
   })
 
+  test('TC 01.1.1_05 <Header/Header logo> Click title Women', async ({page}) => {
+    await page.getByRole('menuitem', {name: ' Women'}).click()
+    await expect(page).toHaveURL('https://magento.softwaretestingboard.com/women.html')
+  })
+
+  test('TC 01.1.1_06 <Header/Header logo> Click title Men', async ({page}) => {
+    await page.getByRole('menuitem', {name: ' Men'}).click()
+    await expect(page).toHaveURL('https://magento.softwaretestingboard.com/men.html')
+})
+
 })
