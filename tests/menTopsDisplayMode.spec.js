@@ -5,7 +5,7 @@ test.describe('menTopsDisplayMode', () => {
     await page.goto('/');
   })
 test("Checking that the grid is selected and has 12 positions by default", async ({ page }) => {
-    await page.goto('https://magento.softwaretestingboard.com/')
+    await page.goto('/')
     await page.locator('#ui-id-5').hover();
     await page.locator('#ui-id-17').click();
 
