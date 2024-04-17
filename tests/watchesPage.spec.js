@@ -74,6 +74,7 @@ test.describe('watchesPage', () => {
         expect(totalSalesNumberItems).not.toEqual(totalNumberItems)
         expect(activeFilter).not.toBeVisible();
     })
+    
     test('TC 19.1.3_01 | Gear/Watches > Verify Clearing ("Clear all" option) Filters Returns to Full Product List', async({page}) =>{
         test.setTimeout(50000)
         const urlPageWatches = 'https://magento.softwaretestingboard.com/gear/watches.html'
