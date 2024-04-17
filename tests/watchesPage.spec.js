@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { globalAgent } from "http";
 
 test.describe('watchesPage', () => {
 
@@ -73,4 +74,23 @@ test.describe('watchesPage', () => {
         expect(totalSalesNumberItems).not.toEqual(totalNumberItems)
         expect(activeFilter).not.toBeVisible();
     })
+    test('TC 19.1.3_01 | Gear/Watches > Verify Clearing ("Clear all" option) Filters Returns to Full Product List', async({page}) =>{
+        test.setTimeout(50000)
+        const urlPageWatches = 'https://magento.softwaretestingboard.com/gear/watches.html'
+        await page.goto(urlPageWatches);
+        await page.getByRole('button', {name: 'Consent'}).click();
+        await expect(page).toHaveTitle("Watches - Gear");
+
+        await page.getByRole('tab',{name: 'Activity'}).click();
+        await page.locator("li.item > a[href*='activity=16']").click();
+        await expect (page.locator('.filter-value')).toHaveText("Athletic");
+
+        const clearAll = page.locator('a.action.clear.filter-clear span');
+
+        await expect(clearAll.isVisible()).resolves.toBe(true);
+        await clearAll.click();
+
+        await expect (page).toHaveURL('https://magento.softwaretestingboard.com/gear/watches.html');
+        await expect(clearAll).not.toBeVisible();
+    });
 })
