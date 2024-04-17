@@ -36,5 +36,28 @@ test.describe('headerPanel', () => {
         
         await expect(logo).toBeVisible();
     })
+
+    test('TC01.5.1_04 Validate header panel and its elements', async ({ page }) => {
+        const headerPanel = page.locator('.page-header');
+        const headerBoundingBox = await headerPanel.boundingBox();
+        const headerTolerance = 50; // Setting up header boundaries to verify it is at the top of the screen;
+
+        await expect(headerPanel).toBeVisible();
+        expect(headerBoundingBox.y).toBeLessThanOrEqual(headerTolerance); // Verifying header is at the top of the screen;
+        
+        const writeForUs = page.getByRole('banner').getByText('Click “Write for us” link in the footer to submit a guest post')
+        await expect(writeForUs).toBeVisible();
+
+        const signInButton = page.getByRole('link', {name: 'Sign In'});
+        await expect(signInButton).toBeVisible();
+
+        const createAccount = page.getByRole('link', { name: 'Create an Account' });
+        await expect(createAccount).toBeVisible();
+        
+        const logoImage = page.locator('.logo img');
+        await expect(logoImage).toBeVisible();
+
+    })
+
 })
 
