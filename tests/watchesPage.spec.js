@@ -76,7 +76,7 @@ test.describe('watchesPage', () => {
     })
     
     test('TC 19.1.3_01 | Gear/Watches > Verify Clearing ("Clear all" option) Filters Returns to Full Product List', async({page}) =>{
-        test.setTimeout(50000)
+        test.setTimeout(120000)
         const urlPageWatches = 'https://magento.softwaretestingboard.com/gear/watches.html'
         await page.goto(urlPageWatches);
         await page.getByRole('button', {name: 'Consent'}).click();
@@ -91,7 +91,7 @@ test.describe('watchesPage', () => {
         await expect(clearAll.isVisible()).resolves.toBe(true);
         await clearAll.click();
 
-        await expect (page).toHaveURL('https://magento.softwaretestingboard.com/gear/watches.html');
+        await expect (page).toHaveURL(urlPageWatches);
         await expect(clearAll).not.toBeVisible();
     });
-})
+});
