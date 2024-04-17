@@ -44,4 +44,20 @@ test.describe("customerAccount", () => {
     await expect(greetingMSG).toBeVisible();
     await expect(greetingMSG).toHaveText("Welcome, Angelina-Maria O'Neel!");
   });
+
+  test("<Account/Stored Payment TC Methods> Verify the Payment Method for the User Account can be viewed"
+  , async ({ page }) => {
+
+    await page.locator(".panel.header span[role='button']").click();
+    await page.locator("div[class='panel wrapper'] li:nth-child(1) a:nth-child(1)").click();
+
+    await expect(page).toHaveTitle("My Account");
+    await expect(page.getByRole("heading",{name:"My Account"})).toBeVisible();
+
+    await page.locator("ul[class='nav items'] li:nth-child(8)").click();
+
+    await expect(page).toHaveTitle("Stored Payment Methods");
+    await expect(page.getByRole("heading",{name:"Stored Payment Methods"})).toBeVisible();
+    expect(page.locator('.message.info.empty span')).toHaveText('You have no stored payment methods.');
+  });
 });
