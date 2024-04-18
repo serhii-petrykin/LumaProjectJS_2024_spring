@@ -38,7 +38,7 @@ test.describe('Menu/Men', () => {
     });
 
     test('Menu/Men/Tops available to click, redirect to Tops for Men', async ({page}) => {
-        test.setTimeout(120000);
+        // test.setTimeout(120000);
         await page.goto("/");
         page.locator("#ui-id-5").hover();
         await page.locator("#ui-id-17").click();
