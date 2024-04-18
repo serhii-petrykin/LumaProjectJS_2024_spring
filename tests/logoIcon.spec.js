@@ -18,4 +18,13 @@ test.describe("Check logo icon navigation", () => {
       await expect(page).toHaveURL("https://magento.softwaretestingboard.com");
     }
   });
+
+  test("Logo/icon is clickable and redirectable", async ({page}) => {
+    const homePage = "https://magento.softwaretestingboard.com/";
+    await page.goto(homePage);
+    await page.getByRole("menuitem", {name: "What's New"}).click();
+    await expect(page).toHaveURL("https://magento.softwaretestingboard.com/what-is-new.html");
+    await page.locator(".logo").click();
+    await expect(page).toHaveURL(homePage);
+  })
 });
