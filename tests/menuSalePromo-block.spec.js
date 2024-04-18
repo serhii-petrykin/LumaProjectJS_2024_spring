@@ -35,7 +35,7 @@ test.describe("menuSalePromo-block", () => {
     await expect(page.locator("span[data-ui-id='page-title-wrapper']")).toHaveText("Men Sale");
   });
 
-  test.only("Redirecting to 'Gear' page", async({page}) => {
+  test("Redirecting to 'Gear' page", async({page}) => {
     await page.locator('a.block-promo.sale-women').click();
     
     await expect(page.locator('#page-title-heading')).toHaveText('Gear');
