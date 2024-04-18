@@ -38,7 +38,7 @@ test.describe("menuSalePromo-block", () => {
   test("Redirecting to 'Gear' page", async({page}) => {
     await page.locator('a.block-promo.sale-women').click();
     
-    await expect(page.locator('#page-title-heading')).toHaveText('Gear');
     await expect(page).toHaveTitle('Gear');
+    await expect(page.locator('#page-title-heading')).toHaveText('Gear');
   });
 })
