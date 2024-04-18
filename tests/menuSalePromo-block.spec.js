@@ -11,13 +11,12 @@ test.describe("menuSalePromo-block", () => {
 
   test.beforeEach(async ({ page }) => {
     await page.goto("/" + "sale.html");
-
   });
 
   test("Verify 'Sale' page contains 6 promo-blocks as images", async ({ page }) => {
     const promoBlocks = page.locator("div.blocks-promo img");
 
-    expect(promoBlocks).toHaveCount(6);
+    await expect(promoBlocks).toHaveCount(6);
   });
 
   for (const link of links) {
@@ -27,4 +26,12 @@ test.describe("menuSalePromo-block", () => {
       await expect(page.locator('#page-title-heading > span')).toHaveText(link.title);
     });
   }
+
+  test("Verify redirecting to 'Women Sale' page after click on 'Women's Deals' block", async ({ page }) => {
+    const womenSaleURL = "https://magento.softwaretestingboard.com/promotions/women-sale.html";
+    await page.locator("a.sale-main").click();
+
+    await expect(page).toHaveTitle("Women Sale");
+    expect(page.locator("span[data-ui-id='page-title-wrapper']")).toHaveText("Women Sale");
+  });
 })
