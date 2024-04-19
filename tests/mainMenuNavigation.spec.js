@@ -33,9 +33,9 @@ test.describe('menu navigation', () => {
     await expect(menuBar).toBeVisible()
     await expect(menuBar).toHaveCSS('background-color', 'rgb(240, 240, 240)')
   })
-  
 
-  test('verify User can see 6 menu options on the main page', async ({
+
+  test('verify User can see 6 menu options on the main page with particular text', async ({
     page
   }) => {
     let array = ["What's New", 'Women', 'Men', 'Gear', 'Training', 'Sale']
