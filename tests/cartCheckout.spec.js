@@ -32,5 +32,6 @@ test.describe('US Cart/Checkout', () => {
     
         await page.locator('#shipping-new-address-form div').filter({ hasText: 'Last Name' }).click();
         await page.getByLabel('Last Name').fill('Smith');
+        
     })
 })
