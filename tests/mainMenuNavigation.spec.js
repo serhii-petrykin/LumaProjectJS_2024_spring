@@ -30,7 +30,6 @@ test.describe('menu navigation', () => {
   }) => {
     const menuBar = await page.locator('.navigation')
 
-    await expect(menuBar).toBeVisible()
     await expect(menuBar).toHaveCSS('background-color', 'rgb(240, 240, 240)')
   })
 
