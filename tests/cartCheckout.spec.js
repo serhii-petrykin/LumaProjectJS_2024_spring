@@ -5,7 +5,7 @@ test.describe('US Cart/Checkout', () => {
     test('TC 09_2_06 <Cart/Checkout> User able to type in their First Name', async ({ page }) => {
         await page.goto('https://magento.softwaretestingboard.com/');
 
-        await page.getByLabel('Consent', { exact: true }).click();
+        //await page.getByLabel('Consent', { exact: true }).click();
 
         await page.getByRole('option', { name: 'XS' }).first().click();
         await page.getByRole('option', { name: 'Blue' }).first().click();
