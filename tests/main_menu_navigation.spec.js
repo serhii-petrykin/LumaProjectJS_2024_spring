@@ -31,5 +31,6 @@ test.describe('Main menu navigation', () => {
       await expect(menuOptions).toHaveCount(6)
       await expect(actualLink).toEqual(expectedLink)
     }
+      
   })
 })
