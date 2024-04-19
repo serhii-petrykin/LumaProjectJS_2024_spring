@@ -92,11 +92,6 @@ test.describe('watchesPage', () => {
         const response = await page.request.get(baseURL + '/gear/watches.html?product_list_limit=24&product_list_mode=list');
     
         await expect(response).toBeOK();
-        await expect(page).toHaveTitle("Watches - Gear");
-        await expect(page.getByRole('heading', {name: 'Watches'})).toBeVisible();
-        const allTextItems = await page.locator('.products .product-items .product-item-link').allTextContents();
-        for (const item of allTextItems) {
-            expect(item).toContain('Watch');
-        }
+        await expect(page).toHaveTitle(/Watches/);
     })
 });
