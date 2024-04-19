@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Main menu navigation', () => {
   test.beforeEach('Opem main page', async ({ page }) => {
-    await page.goto('https://magento.softwaretestingboard.com/')
+    await page.goto('/')
   })
 
   test('verify Main menu is displayed on the top of the home page in the grey field', async ({
