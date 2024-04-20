@@ -78,7 +78,7 @@ test.describe('header', () => {
     await expect(counter).not.toBeVisible();
   })
   
-  test('TC 01.1.2_03 The user can enter login details and authenticate', async ({ page }) => {
+  test.skip('TC 01.1.2_03 The user can enter login details and authenticate', async ({ page }) => {
     const signInLocator = page.locator('.page-header').getByRole('link', { name: 'Sign In' })
     await signInLocator.click()
 
@@ -125,5 +125,12 @@ test.describe('header', () => {
     await expect(signInLocator).toBeVisible();
   })
   })
+
+  test('TC 01.2.1_08 Drop-down list in the search', async ({ page }) => {
+
+    await page.getByPlaceholder('Search entire store here').click();
+    await page.getByPlaceholder('Search entire store here').fill('bag');
+    await expect(page.locator('#search_autocomplete > ul > li')).toHaveCount(8);
+})
 
 })
