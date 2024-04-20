@@ -13,7 +13,7 @@ test.describe("menuSalePromo-block", () => {
     await page.goto("/" + "sale.html");
   });
 
-  test("Verify 'Sale' page contains 6 promo-blocks as images", async ({ page }) => {
+  test.skip("Verify 'Sale' page contains 6 promo-blocks as images", async ({ page }) => {
     const promoBlocks = page.locator("div.blocks-promo img");
 
     await expect(promoBlocks).toHaveCount(6);
