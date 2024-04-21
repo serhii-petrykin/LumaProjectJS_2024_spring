@@ -20,8 +20,7 @@ test.describe('Menu/Men', () => {
         await page.getByLabel("Email").fill("svetik.buratino@gmail.com");
         await page.getByLabel("Password").fill("User123!");
         await page.getByRole("button", { name: "Sign In" }).click();
-        await page.getByRole('heading', {name:'My Account'}).waitFor;
-
+        
         await expect(page).toHaveURL('https://magento.softwaretestingboard.com/');
         await expect(page.getByText('Welcome, Svetlana Ch!').first()).toBeVisible();
 
