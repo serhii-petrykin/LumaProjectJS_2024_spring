@@ -23,5 +23,4 @@ test.describe('menuSaleGear_Deals', () => {
         await expect(page.locator('.sidebar-main')).toHaveCSS('float', 'left');
     });
 
-
 });
