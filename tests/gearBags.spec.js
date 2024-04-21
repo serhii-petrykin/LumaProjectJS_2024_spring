@@ -11,7 +11,7 @@ test.describe("gearBags", () => {
     const materialOption = page.locator("text=Material");
     await expect(materialOption).toBeVisible();
   });
-  test.only("Verify user can choose a bag by material leather", async ({ page }) => {
+  test("Verify user can choose a bag by material leather", async ({ page }) => {
     const pageGear = "https://magento.softwaretestingboard.com/gear.html";
     await page.goto(pageGear);
     await expect(page).toHaveTitle("Gear");
