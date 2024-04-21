@@ -15,20 +15,20 @@ test.describe('Menu/Men', () => {
     })    
      
     test("Verify the display of My Wish List on the men's page", async ({ page, }) => {
-        test.setTimeout(120000);
+        
         await page.getByRole("link", { name: "Sign In" }).click();
-        await page.getByLabel("Email").fill("svetik.buratino@gmail.com");
-        await page.getByLabel("Password").fill("User123!");
+        await page.getByLabel("Email").fill("User_258@gmail.com");
+        await page.getByLabel("Password").fill("Password12345");
         await page.getByRole("button", { name: "Sign In" }).click();
         await page.getByRole('heading', {name:'My Account'}).waitFor();
 
         await expect(page).toHaveURL('https://magento.softwaretestingboard.com/');
-        await expect(page.getByText('Welcome, Svetlana Ch!').first()).toBeVisible();
+        await expect(page.getByText('Welcome, User1 User1!').first()).toBeVisible();
 
         await page.getByRole("menuitem", { name: "Men" }).last().click();
 
         await expect(page).toHaveURL('https://magento.softwaretestingboard.com/men.html');
-        await expect(page.getByText('Welcome, Svetlana Ch!').first()).toBeVisible({ timeout: 10000 })
+        await expect(page.getByText('Welcome, User1 User1!').first()).toBeVisible({ timeout: 10000 })
         
         await page.locator('.products-grid li').first().click();    
         await page.getByRole('link', {name:'Add to Wish List'}).click();       
