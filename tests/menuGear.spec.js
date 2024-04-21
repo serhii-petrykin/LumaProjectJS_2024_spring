@@ -67,4 +67,13 @@ test.describe('menuGear', () => {
         expect(actualItemsLinks).toEqual(expectedItems);
     });
 
+    test('Validate item categories on the Gear page', async ({ page }) => {
+        await page.getByRole('menuitem', { name: "Gear" }).click();
+        await expect(page).toHaveURL(BASE_URL + '/gear.html');
+
+        const itemCategory = await page.locator('ol.items li a').allTextContents();
+        expect(itemCategory).toEqual(expectedItems);
+
+    })
+
 });
