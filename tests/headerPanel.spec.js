@@ -59,5 +59,28 @@ test.describe('headerPanel', () => {
 
     })
 
+    test('TC01.5.1_04 Validate header elements', async ({ page }) => {
+        
+        const writeForUs = page.getByRole('banner').getByText('Click “Write for us” link in the footer to submit a guest post')
+        await expect(writeForUs).toBeVisible();
+
+        const signInButton = page.getByRole('link', {name: 'Sign In'});
+        await expect(signInButton).toBeVisible();
+
+        const createAccount = page.getByRole('link', { name: 'Create an Account' });
+        await expect(createAccount).toBeVisible();
+        
+        const logoImage = page.locator('.logo img');
+        await expect(logoImage).toBeVisible();
+
+    })
+
+    test('TC01.5.1_04 Validate header image', async ({ page }) => {
+        
+        const logoImage = page.locator('.logo img');
+        await expect(logoImage).toBeVisible();
+
+    })
+
 })
 
