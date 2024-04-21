@@ -58,7 +58,7 @@ test.describe('gearPage', () => {
     })
 
     test ('Verify that the link Watches redirects to the Watches page', async({page}) => {
-        await page.goto(GEAR_url);
+        await page.locator('#ui-id-6').click();
         await page.locator('#narrow-by-list2').getByRole('link', { name: 'Watches' }).click();
 
         await expect(page).toHaveURL(WATCHES_URL);
