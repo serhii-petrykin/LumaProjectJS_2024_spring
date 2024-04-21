@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test"; 
 
 test.describe('gearWatchesShoppingOptionsNew', () => {
-    const baseURL = 'https://magento.softwaretestingboard.com';
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
     })
