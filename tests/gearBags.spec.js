@@ -11,14 +11,15 @@ test.describe("gearBags", () => {
     const materialOption = page.locator("text=Material");
     await expect(materialOption).toBeVisible();
   });
-  test("Verify user can choose a bag by material leather", async ({ page }) => {
-    const pageGear = "https://magento.softwaretestingboard.com/gear.html";
-    await page.goto(pageGear);
+  test.only("Verify user can choose a bag by material leather", async ({ page }) => {
+    await page.getByText('Gear', { exact: true }).click();
     await expect(page).toHaveTitle("Gear");
+    await expect(page).toHaveURL("https://magento.softwaretestingboard.com/gear.html");
     page.locator("#ui-id-6").hover();
     await page.locator("#ui-id-25").click();
     await expect(page).toHaveURL("https://magento.softwaretestingboard.com/gear/bags.html");
-    await page.goto("https://magento.softwaretestingboard.com/gear/bags.html?material=35");
+    await page.getByText('Material', { exact: true }).click();
+    await page.getByRole('listitem').locator('li').filter({ hasText: ' Leather ' });
     await expect(page.locator('#toolbar-amount')).toHaveCount(2);
   });
 
