@@ -18,4 +18,12 @@ test.describe("Check logo icon navigation", () => {
       await expect(page).toHaveURL("https://magento.softwaretestingboard.com");
     }
   });
+
+  test('reload Home page when click on the logo', async ({ page }) => {
+    await page.goto('https://magento.softwaretestingboard.com/');
+    await page.getByLabel('store logo').click()
+  
+    await page.reload();
+    await expect(page).toHaveURL('https://magento.softwaretestingboard.com/');
+  });  
 });
