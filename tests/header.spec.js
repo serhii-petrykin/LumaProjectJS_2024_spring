@@ -166,8 +166,6 @@ test.describe('header', () => {
         await page.goto(link);
         const signInLink = page.locator(".authorization-link").first();
         const signInBox = await signInLink?.boundingBox();
-       //console.log(signInBox)
-  
       await expect(signInBox.x > signInBox.y).toBe(true);
       }
       });
