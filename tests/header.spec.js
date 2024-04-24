@@ -197,4 +197,10 @@ test.describe('header', () => {
       "disabled"
     );
   });
+
+      test('The message “You have no items in your shopping cart.“ is displayed.', async ({page}) => {
+        await page.locator('.showcart').click();
+        await expect(page.locator('.subtitle')).toBeVisible();
+        await expect(page.locator('.subtitle')).toHaveText('You have no items in your shopping cart.');        
+      });
 })
