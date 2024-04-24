@@ -34,4 +34,5 @@ test.describe("Check logo icon navigation", () => {
      const currentURL = page.url();
      // И затем сравните текущий URL с ожидаемым
      expect(currentURL).toBe('https://magento.softwaretestingboard.com/');
+  })
 });
