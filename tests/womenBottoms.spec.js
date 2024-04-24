@@ -21,4 +21,14 @@ test.describe('Women bottoms page', () => {
     
         await expect(page.locator('.breadcrumbs')).toHaveText('Home Women Bottoms');
     })
+
+    test("Product display mode change in the catalog", async ({ page }) => {
+        await page.goto("/" + "women/bottoms-women.html");
+        await page.getByTitle("List").first().click();
+        expect(await page.locator("div[class*=products-list]")).toBeVisible();
+        expect(await page.locator("div[class*=products-grid] ")).not.toBeVisible();
+        await page.getByTitle("Grid").first().click();
+        expect(await page.locator("div[class*=products-grid]")).toBeVisible();
+        expect(await page.locator("div[class*=products-list] ")).not.toBeVisible();
+    });
 })
