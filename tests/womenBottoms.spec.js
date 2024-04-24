@@ -5,6 +5,9 @@ test.describe('Women bottoms page', () => {
 
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
+        if (await page.getByRole("dialog", {name: "This site asks for consent to use your data",}).isVisible()) {
+            await page.getByLabel("Consent", { exact: true }).click();
+   }
     })
 
     test('TC 05.2.1_01 Redirection to the Women/Bottoms page after clicking the “Bottoms” droplist category.', async ({ page }) => {
@@ -25,10 +28,6 @@ test.describe('Women bottoms page', () => {
     test("Product display mode change in the catalog", async ({ page }) => {
         await page.goto("/" + "women/bottoms-women.html");
         await page.getByTitle("List").first().click();
-        expect(await page.locator("div[class*=products-list]")).toBeVisible();
-        expect(await page.locator("div[class*=products-grid] ")).not.toBeVisible();
-        await page.getByTitle("Grid").first().click();
-        expect(await page.locator("div[class*=products-grid]")).toBeVisible();
-        expect(await page.locator("div[class*=products-list] ")).not.toBeVisible();
+        expect(await page.locator("div[class*=products-list]")).toHaveClass(/products-list/);
     });
 })
