@@ -25,7 +25,7 @@ test.describe('Women bottoms page', () => {
         await expect(page.locator('.breadcrumbs')).toHaveText('Home Women Bottoms');
     })
 
-    test("Product display mode change in the catalog", async ({ page }) => {
+    test("Product display mode change in the catalog to List mode", async ({ page }) => {
         await page.goto("/" + "women/bottoms-women.html");
         await page.getByTitle("List").first().click();
         expect(await page.locator("div[class*=products-list]")).toHaveClass(/products-list/);
