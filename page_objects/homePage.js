@@ -1,6 +1,7 @@
 import WhatsNewPage from "./whatsNewPage.js";
 import WomenPage from "./womenPage.js";
 import MenPage from "./menPage";
+import RadiantTeePage from "./radiantTeePage.js";
 
 class HomePage {
   constructor(page) {
@@ -8,18 +9,14 @@ class HomePage {
   }
 
   locators = {
-    getWhatsNewLink: () =>
-      this.page.getByRole("listitem").filter({ hasText: "What's New" }),
-    getWomenLink: () =>
-      this.page.locator(".nav-sections .navigation li a[href$='/women.html']"),
+    getWhatsNewLink: () => this.page.getByRole("listitem").filter({ hasText: "What's New" }),
+    getWomenLink: () => this.page.locator(".nav-sections .navigation li a[href$='/women.html']"),
     getMenLink: () => this.page.getByRole('menuitem', {name: 'Men'}).last(),
-    getSearchInputField: () =>
-      this.page.getByPlaceholder("Search entire store here..."),
-    getWaitForAutocompleteSearchItems: () =>
-      this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
-    getAutocompleteSearchItems: () =>
-      this.page.locator("#search_autocomplete>ul>li>span:first-child"),
-    getSearchButton: () => this.page.locator('button[title="Search"]')
+    getSearchInputField: () => this.page.getByPlaceholder("Search entire store here..."),
+    getWaitForAutocompleteSearchItems: () => this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
+    getAutocompleteSearchItems: () => this.page.locator("#search_autocomplete>ul>li>span:first-child"),
+    getSearchButton: () => this.page.locator('button[title="Search"]'),
+    getRadiantTee: () => this.page.getByTitle('Radiant Tee')
   };
 
   async open() {
@@ -65,5 +62,10 @@ class HomePage {
         return this;
     }
 
+  async clickRadiantTee() {
+        await this.locators.getRadiantTee().click();
+
+        return new RadiantTeePage(this.page);
+  }
 }
 export default HomePage;
