@@ -26,4 +26,9 @@ test.describe('header.spec', () => {
         await expect(header.locators.getTotalQuantity()).toHaveText(`${quantityItems}`);
         await expect(header.locators.getTotalCost()).toHaveText("$" + totalCost);    
     })
+
+    test('Verify the Create an Account link is displayed on the main page in the header', async ({ page }) => {
+        const homePage = new HomePage(page);
+        await expect(homePage.locators.getCreateAccountLink()).toBeVisible();
+    })
 })
