@@ -26,7 +26,6 @@ class HomePage {
     getSearchInputField: () => this.page.getByPlaceholder("Search entire store here..."),
     getWaitForAutocompleteSearchItems: () => this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
     getAutocompleteSearchItems: () => this.page.locator("#search_autocomplete>ul>li>span:first-child"),
-    getSearchButton: () => this.page.locator('button[title="Search"]'),
     getRadiantTee: () => this.page.getByTitle('Radiant Tee'),
 	  getTrainingLink: () => this.page.getByRole('menuitem', { name: 'Training' }),
     getCreateAccountLink: () => this.page.getByRole('link', {name: 'Create an Account'}),
