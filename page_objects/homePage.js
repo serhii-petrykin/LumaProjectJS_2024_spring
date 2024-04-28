@@ -61,9 +61,9 @@ class HomePage {
   }
 
   async clickTrainingLink() {
-	await this.locators.getTrainingLink().click();
+	 await this.locators.getTrainingLink().click();
 
-	return new TrainingPage(this.page);;
+	 return new TrainingPage(this.page);
   }
 
   async hoverMenLink() {
