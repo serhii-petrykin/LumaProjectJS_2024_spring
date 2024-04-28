@@ -76,3 +76,9 @@ export const SEARCH_TERMS_POPULAR_PAGE_HEADER = 'Popular Search Terms'
 //login  credential
 
 
+
+//login  credential
+
+export const email = 'kat123@gmail.com';
+export const password = 'Password!';
+
