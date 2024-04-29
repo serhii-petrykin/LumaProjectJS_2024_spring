@@ -93,9 +93,7 @@ export const EMPTY_CARD_MESSAGE = 'You have no items in your shopping cart.';
 export const MY_WISH_LIST_EMPTY_MESSAGE ='You have no items in your wish list.'
 export const MEN_PAGE_TOPS_SUB_CATEGORY_LINK_COLOR = 'rgb(0, 107, 180)';
 export const MEN_PAGE_BOTTOMS_SUB_CATEGORY_LINK_COLOR = 'rgb(0, 107, 180)';
-
-
-
+export const SHOPING_CART_COUNTER_NUMBER = '1';
 
 
 //login  credential
