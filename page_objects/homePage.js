@@ -11,6 +11,7 @@ import SearchTermPopularPage from "./searchTermPopularPage.js";
 import SalePage from "./salePage.js";
 import GearWatchesPage from "./gearWatchesPage.js";
 import Footer from "./footer.js";
+import GearPage from "./gearPage.js";
 
 class HomePage {
   constructor(page) {
@@ -214,6 +215,11 @@ class HomePage {
 
   getFooter() {
     return new Footer(this.page);
+  }
+  async clickGearMenuItem() {
+    await this.locators.getGearMenuItem().click();
+
+    return new GearPage(this.page);
   }
 }
 export default HomePage;
