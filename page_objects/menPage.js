@@ -16,6 +16,7 @@ class MenPage {
         getTopsSubCategoryLink: () => this.page.getByRole('link', { name: 'Tops' }),
         getBottomsSubCategoryLink: () => this.page.getByRole('link', { name: 'Bottoms' }),
         getShopByCategoryBlock: () => this.page.locator('[class="sidebar sidebar-main"]'),
+        getSubCaregoriesInCategoryBlock: () => this.page.locator('ol.items li'),
         getMenHotSellersName: (productsName) => this.page.getByTitle(productsName),
     }
 
