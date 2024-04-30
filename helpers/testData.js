@@ -146,6 +146,7 @@ export const LIST_OF_MATERIALS_SUBITEMS_EXPECTED = [
   ];
 
 export const JACKET_ITEMS = ["Jacket", "Shell"];
+export const ORDERS_AND_RETURNS_HEADER = 'Orders and Returns';
 
 export const LIST_OF_SUB_CATEGORY_ON_MEN_BOTTOMS_PAGE_LOCATORS = [
   '.filter-options-item.allow.active > div > ol > li:nth-child(1) a', 
