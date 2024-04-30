@@ -22,50 +22,33 @@ class HomePage {
   }
 
   locators = {
-    getWhatsNewLink: () =>
-      this.page.getByRole("listitem").filter({ hasText: "What's New" }),
-    getWomenLink: () =>
-      this.page.locator(".nav-sections .navigation li a[href$='/women.html']"),
-    getMenLink: () => this.page.getByRole("menuitem", { name: "Men" }).last(),
-    getMenBottomsLink: () =>
-      this.page.getByRole("menuitem", { name: "Bottoms" }),
-    getSearchInputField: () =>
-      this.page.getByPlaceholder("Search entire store here..."),
-    getWaitForAutocompleteSearchItems: () =>
-      this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
-    getAutocompleteSearchItems: () =>
-      this.page.locator("#search_autocomplete>ul>li>span:first-child"),
+    getWhatsNewLink: () => this.page.getByRole("listitem").filter({ hasText: "What's New" }),
+    getWomenLink: () => this.page.locator(".nav-sections .navigation li a[href$='/women.html']"),
+    getMenLink: () => this.page.getByRole('menuitem', { name: 'Men' }).last(),
+    getMenBottomsLink: () => this.page.getByRole('menuitem', { name: 'Bottoms' }),
+    getSearchInputField: () => this.page.getByPlaceholder("Search entire store here..."),
+    getWaitForAutocompleteSearchItems: () => this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
+    getAutocompleteSearchItems: () => this.page.locator("#search_autocomplete>ul>li>span:first-child"),
     getSearchButton: () => this.page.locator('button[title="Search"]'),
-    getSearchInputField: () =>
-      this.page.getByPlaceholder("Search entire store here..."),
-    getWaitForAutocompleteSearchItems: () =>
-      this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
-    getAutocompleteSearchItems: () =>
-      this.page.locator("#search_autocomplete>ul>li>span:first-child"),
-    getRadiantTee: () => this.page.getByTitle("Radiant Tee"),
-    getTrainingLink: () =>
-      this.page.getByRole("menuitem", { name: "Training" }),
-    getCreateAccountLink: () =>
-      this.page.getByRole("link", { name: "Create an Account" }),
-    getMenTopsLink: () => this.page.locator("#ui-id-17"),
-    getCreateAccountLink: () =>
-      this.page.getByRole("link", { name: "Create an Account" }),
-    getBottomsWomenLink: () =>
-      this.page.getByRole("menuitem", { name: "Bottoms" }),
-    getSearchTermPopularLink: () =>
-      this.page.getByRole("link", { name: "Search Terms" }),
-    getFirstCardImage: () => this.page.getByAltText("Radiant Tee"),
-    getDropdownWishList: () =>
-      this.page.getByRole("banner").getByText("My Account My Wish List Sign"),
-    getSaleLink: () => this.page.locator("#ui-id-8"),
-    getHotSellersXSSizeButton: () =>
-      this.page.getByRole("option", { name: "XS" }),
-    getHotSellersBlueColor: () =>
-      this.page.getByRole("option", { name: "Blue" }),
-    getHotSellersAddToCartButton: () => this.page.getByTitle("Add to Cart"),
-    getWomenCategories: () => this.page.locator(".nav-2 > ul > li > a"),
+    getSearchInputField: () => this.page.getByPlaceholder("Search entire store here..."),
+    getWaitForAutocompleteSearchItems: () => this.page.waitForSelector("#search_autocomplete>ul>li>span:first-child"),
+    getAutocompleteSearchItems: () => this.page.locator("#search_autocomplete>ul>li>span:first-child"),
+    getRadiantTee: () => this.page.getByTitle('Radiant Tee'),
+    getTrainingLink: () => this.page.getByRole('menuitem', { name: 'Training' }),
+    getCreateAccountLink: () => this.page.getByRole('link', { name: 'Create an Account' }),
+    getMenTopsLink: () => this.page.locator('#ui-id-17'),
+    getCreateAccountLink: () => this.page.getByRole('link', { name: 'Create an Account' }),
+    getBottomsWomenLink: () => this.page.getByRole('menuitem', { name: 'Bottoms' }),
+    getSearchTermPopularLink: () => this.page.getByRole('link', { name: 'Search Terms' }),
+    getFirstCardImage: () => this.page.getByAltText('Radiant Tee'),
+    getDropdownWishList: () => this.page.getByRole('banner').getByText('My Account My Wish List Sign'),
+    getSaleLink: () => this.page.locator('#ui-id-8'),
+    getHotSellersXSSizeButton: () => this.page.getByRole('option', { name: 'XS' }),
+    getHotSellersBlueColor: () => this.page.getByRole('option', { name: 'Blue' }),
+    getHotSellersAddToCartButton: () => this.page.getByTitle('Add to Cart'),
+    getWomenCategories: () => this.page.locator('.nav-2 > ul > li > a'),
     getGearMenuItem: () => this.page.getByRole("menuitem", { name: "Gear" }),
-	 getGearBagsSubmenuItem: () => this.page.getByRole('menuitem', { name: 'Bags' }),
+    getGearBagsSubmenuItem: () => this.page.getByRole('menuitem', { name: 'Bags' }),
     getGearWatchesSubmenuItem: () =>
       this.page.getByRole("menuitem", { name: "Watches" }),
       getSignInLink: () => this.page.getByRole('link', { name: 'Sign In' }),
@@ -73,7 +56,7 @@ class HomePage {
     getNavigationMenuItemsList: () => this.page.getByRole('navigation').getByRole('listitem'),
 
     getGearBagsSubmenuItem: () => this.page.locator("#ui-id-25"),
-
+    getGearBagsLink: () => this.page.getByRole("menuitem").filter({ hasText: "Bags" })
   };
 
   async open() {
@@ -157,7 +140,7 @@ class HomePage {
   async clickMenTopsLink() {
     await this.locators.getMenTopsLink().click();
 
-    return new MenTopsPage(this.page);
+    return new MenTopsPage(this.page)
   }
 
   async clickBottomsWomenLink() {
@@ -254,16 +237,15 @@ class HomePage {
   }
 
   async clickGearBagsSubmenuItem() {
-	await this.locators.getGearBagsSubmenuItem().click();
-
-	return new GearBagsPage(this.page);
-
-}
-
-  async clickGearBagsSubmenuItem() {
     await this.locators.getGearBagsSubmenuItem().click();
 
-    return new  GearBagsPage(this.page);
+    return new GearBagsPage(this.page);
+  }
+
+  async clickGearBags() {
+    await this.locators.getGearBagsLink().click();
+
+    return new GearBagsPage(this.page);
   }
 }
 export default HomePage;
