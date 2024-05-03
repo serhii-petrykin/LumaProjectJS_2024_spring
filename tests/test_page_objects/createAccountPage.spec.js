@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
 import HomePage from "../../page_objects/homePage.js";
 import CreateAccountPage from "../../page_objects/createAccountPage.js";
-import {FIRST_NAME, LAST_NAME, PASSWORD, PASSWORD_CONFIRM, EMAIL, MY_ACCOUNT_HEADER, THANKS_MESSAGE} from "../../helpers/testData.js";
+import {FIRST_NAME, LAST_NAME, PASSWORD, PASSWORD_CONFIRM, EMAIL, MY_ACCOUNT_HEADER, THANKS_MESSAGE, BASE_URL, SIGN_IN_END_POINT} from "../../helpers/testData.js";
 import MyAccountPage from "../../page_objects/myAccountPage.js";
+import SignInPage from "../../page_objects/signInPage.js";
 
 
 
@@ -33,4 +34,15 @@ test.describe('createAccuntPage.spec', () => {
        await expect(myAccountPage.locators.getMyAccountHeader()).toHaveText(MY_ACCOUNT_HEADER);
        await expect(myAccountPage.locators.getThanksMessage()).toHaveText(THANKS_MESSAGE);
     });
+
+    test('RF_TC 10.3.1_13 Registration/Create Account as a new user', async({page})=>{
+        const homePage = new HomePage(page)
+        const signInPage = new SignInPage(page)
+        const createAccountPage = new CreateAccountPage(page)
+
+        await homePage.clickSignInLink()
+        await signInPage.waitForNavigation()
+
+        await expect(signInPage).toHaveURL(BASE_URL + SIGN_IN_END_POINT)
+    })
 })

@@ -20,6 +20,7 @@ export const NAVBAR_URLs_END_POINTS = [
     '/training.html',
     '/sale.html'
 ];
+export const SIGN_IN_END_POINT = '/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/'
 
 //test data
 export const WHATS_NEW_PAGE_HEADER = "What's New";

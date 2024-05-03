@@ -13,6 +13,7 @@ import GearWatchesPage from "./gearWatchesPage.js";
 import Footer from "./footer.js";
 import GearPage from "./gearPage.js";
 import GearBagsPage from "./gearBagsPage.js";
+import SignInPage from "./signInPage.js";
 
 class HomePage {
   constructor(page) {
@@ -34,8 +35,8 @@ class HomePage {
     getRadiantTee: () => this.page.getByTitle('Radiant Tee'),
     getTrainingLink: () => this.page.getByRole('menuitem', { name: 'Training' }),
     getCreateAccountLink: () => this.page.getByRole('link', { name: 'Create an Account' }),
+    getSignInLinck: () => this.page.getByRole('link',{name:'Sign In'}),
     getMenTopsLink: () => this.page.locator('#ui-id-17'),
-    getCreateAccountLink: () => this.page.getByRole('link', { name: 'Create an Account' }),
     getBottomsWomenLink: () => this.page.getByRole('menuitem', { name: 'Bottoms' }),
     getSearchTermPopularLink: () => this.page.getByRole('link', { name: 'Search Terms' }),
     getFirstCardImage: () => this.page.getByAltText('Radiant Tee'),
@@ -46,9 +47,8 @@ class HomePage {
     getHotSellersAddToCartButton: () => this.page.getByTitle('Add to Cart'),
     getWomenCategories: () => this.page.locator('.nav-2 > ul > li > a'),
     getGearMenuItem: () => this.page.getByRole("menuitem", { name: "Gear" }),
-	 getGearBagsSubmenuItem: () => this.page.getByRole('menuitem', { name: 'Bags' }),
-    getGearWatchesSubmenuItem: () =>
-      this.page.getByRole("menuitem", { name: "Watches" }),
+	  getGearBagsSubmenuItem: () => this.page.getByRole('menuitem', { name: 'Bags' }),
+    getGearWatchesSubmenuItem: () => this.page.getByRole("menuitem", { name: "Watches" }),
     getFirstCardName: () => this.page.locator('a[title="Radiant Tee"]'),
     getNavigationMenuItemsList: () => this.page.getByRole('navigation').getByRole('listitem'),
   };
@@ -165,6 +165,12 @@ class HomePage {
     await this.locators.getSaleLink().click();
 
     return new RadiantTeePage(this.page);
+  }
+
+  async clickSignInLink() {
+    await this.locators.getSignInLinck().click();
+
+    return new SignInPage(this.page);
   }
 
   async clickSaleLink() {
