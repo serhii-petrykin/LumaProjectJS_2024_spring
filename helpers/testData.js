@@ -1,3 +1,5 @@
+import { expect } from "@playwright/test";
+
 //URL
 export const BASE_URL = 'https://magento.softwaretestingboard.com';
 export const WHATS_NEW_PAGE_END_POINT = '/what-is-new.html';
@@ -12,6 +14,8 @@ export const SEARCH_RESULTS_JACKET_PAGE_END_POINT = '/catalogsearch/result/?q=ja
 export const MEN_TOPS_PAGE_END_POINT = '/men/tops-men.html';
 export const SHIPPING_PAGE_END_POINT = '/checkout/#shipping';
 export const RADIANT_TEE_PAGE_END_POINT = '/radiant-tee.html';
+export const CUSTOMER_ACCOUNT_CREATE_END_POINT = '/customer/account/create/';
+export const MY_ACCOUNT_PAGE_END_POINT = '/customer/account/';
 export const NAVBAR_URLs_END_POINTS = [
     '/what-is-new.html',
     '/women.html',
@@ -35,8 +39,11 @@ export const TRAINING_PAGE_BREADCRUMBS_MENU_HOME_TEXT  = 'Home';
 export const VIDEODOWNLOAD_PAGE_HEADER = 'Video Download';
 export const COMPARE_PRODUCT_PAGE_HEADER = 'Compare Products';
 export const COMPARE_PRODUCT_PAGE_ITEM_TEXT = 'Push It Messenger Bag';
-export const WOMEN_TOPS_HEADER = 'Tops'
+export const WOMEN_TOPS_HEADER = 'Tops';
 export const WOMEN_BOTTOMS_HEADER = 'Bottoms';
+export const SIGN_IN_HEADER = 'Customer Login';
+export const BUTTON_REGISTRATION_TITLE = 'Create an Account';
+export const CREATE_ACCOUNT_PAGE_HEADER = /Create New Customer Account/;
 export const shoppingItem1 = {
     name: "Radiant Tee",
     price: 22.00,
@@ -63,6 +70,11 @@ function generateRandomEmail() {
     return `${mailbox}@${domain}`;
   };
 
+  function generateRandomNumber() {
+    return Math.random().toString(36).substring(2, 10)
+  }
+
+export const GEN_RANDOM_NUMBER = generateRandomNumber()
 export const EMAIL = generateRandomEmail(); 
 export const MY_ACCOUNT_HEADER = 'My Account';
 export const THANKS_MESSAGE = 'Thank you for registering with Main Website Store.';
