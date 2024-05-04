@@ -205,10 +205,9 @@ test.describe('homePage.spec', () => {
 
     test('Click on Sign in and assert user redirection to the Login page', async ({page}) => {
         const homePage = new HomePage(page);
-        const signInPage = new SignInPage(page);
-
         await homePage.open();
-        await homePage.clickSignInLink();
+        
+        const signInPage = await homePage.clickSignInLink();
 
         await expect(page).toHaveURL(BASE_URL + CUSTOMER_LOGIN_PAGE_END_POINT);
         await expect(signInPage.locators.getPageHeader()).toHaveText(CUSTOMER_LOGIN_PAGE_HEADER);
