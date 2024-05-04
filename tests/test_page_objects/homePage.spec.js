@@ -19,7 +19,9 @@ import {
     BOTTOMS_WOMEN_PAGE_END_POINT, 
     WOMEN_BOTTOMS_HEADER, 
     CUSTOMER_LOGIN_PAGE_END_POINT, 
-    CUSTOMER_LOGIN_PAGE_HEADER 
+    CUSTOMER_LOGIN_PAGE_HEADER,
+    ARGUS_ALL_WEATHER_TANK_PAGE_END_POINT,
+    HERO_HOODIE_PAGE_END_POINT
 } from "../../helpers/testData.js";
 import SearchResultsJacketPage from "../../page_objects/searchResultsJacketPage.js";
 import RadiantTeePage from "../../page_objects/radiantTeePage.js";
@@ -27,6 +29,8 @@ import SearchNoResultsPage from "../../page_objects/searchNoResultsPage.js";
 import BreatheEasyTankPage from "../../page_objects/breatheEasyTankPage.js";
 import SignInPage from "../../page_objects/signInPage.js";
 import BottomsWomenPage from "../../page_objects/bottomsWomenPage.js";
+import ArgusAllWeatherTankPage from "../../page_objects/argusAllWeatherTankPage.js";
+import HeroHoodiePage from "../../page_objects/heroHoodiePage.js";
 
 test.describe('homePage.spec', () => {
     test.beforeEach(async ({ page }) => {
@@ -162,14 +166,14 @@ test.describe('homePage.spec', () => {
     test('1st card: clicking card reviews redirects to "reviews" tab on respective product card', async ({ page }) => {
         const homePage = new HomePage(page);
         const radiantTeePage = new RadiantTeePage(page);
-        
+
         await homePage.clickFirstCardReviews();
 
         await expect(page).toHaveURL(BASE_URL + RADIANT_TEE_PAGE_REVIEWS_TAB_END_POINT);
-        await expect(radiantTeePage.locators.getRadiantTeeReviewsTab()).toBeVisible();        
+        await expect(radiantTeePage.locators.getRadiantTeeReviewsTab()).toBeVisible();
     })
 
-    test('2nd card: clicking the card name redirects to the respective product card', async ({page}) => {
+    test('2nd card: clicking the card name redirects to the respective product card', async ({ page }) => {
         const homePage = new HomePage(page);
         const breatheEasyTankPage = new BreatheEasyTankPage(page);
 
@@ -189,14 +193,14 @@ test.describe('homePage.spec', () => {
         await expect(breatheEasyTankPage.locators.getBreatheEasyTankHeader()).toBeVisible();
     })
 
-    test('2nd card: clicking card reviews redirects to "reviews" tab on respective product card', async ({page}) => {
+    test('2nd card: clicking card reviews redirects to "reviews" tab on respective product card', async ({ page }) => {
         const homePage = new HomePage(page);
         const breatheEasyTankPage = new BreatheEasyTankPage(page);
 
         await homePage.clickSecondCardReviews();
 
         await expect(page).toHaveURL(BASE_URL + BREATHE_EASY_TANK_PAGE_REVIEWS_TAB_END_POINT);
-        await expect(breatheEasyTankPage.locators.getBreatheEasyTankReviewsTab()).toBeVisible();        
+        await expect(breatheEasyTankPage.locators.getBreatheEasyTankReviewsTab()).toBeVisible();
     })
 
     test('Click on Sign in and assert user redirection to the Login page', async ({page}) => {
@@ -216,8 +220,38 @@ test.describe('homePage.spec', () => {
 
         await homePage.hoverWomenMenuitem();
         await homePage.clickBottomsWomenLink();
-        
+
         await expect(page).toHaveURL(BASE_URL + BOTTOMS_WOMEN_PAGE_END_POINT);
         await expect(bottomsWomenPage.locators.getWomenBottomsPageHeader()).toHaveText(WOMEN_BOTTOMS_HEADER);
     });
+
+    test('3rd card: clicking the card image redirects to the respective product card', async ({ page }) => {
+        const homePage = new HomePage(page);
+        const argusAllWeatherTankPage = new ArgusAllWeatherTankPage(page);
+
+        await homePage.clickThirdCardImage();
+
+        await expect(page).toHaveURL(BASE_URL + ARGUS_ALL_WEATHER_TANK_PAGE_END_POINT);
+        await expect(argusAllWeatherTankPage.locators.getArgusAllWeatherTankPageHeader()).toBeVisible();
+    })
+
+    test('3rd card: clicking the card name redirects to the respective product card', async ({ page }) => {
+        const homePage = new HomePage(page);
+        const argusAllWeatherTankPage = new ArgusAllWeatherTankPage(page);
+        
+        await homePage.clickThirdCardName();
+
+        await expect(page).toHaveURL(BASE_URL + ARGUS_ALL_WEATHER_TANK_PAGE_END_POINT);
+        await expect(argusAllWeatherTankPage.locators.getArgusAllWeatherTankPageHeader()).toBeVisible();
+    })
+
+    test('4th card: clicking the card name redirects to the respective product card', async ({ page }) => {
+        const homePage = new HomePage(page);
+        const heroHoodiePage = new HeroHoodiePage(page);
+
+        await homePage.clickFourthCardName();
+
+        await expect(page).toHaveURL(BASE_URL + HERO_HOODIE_PAGE_END_POINT);
+        await expect(heroHoodiePage.locators.getHeroHoodieHeader()).toBeVisible();
+    })
 })
