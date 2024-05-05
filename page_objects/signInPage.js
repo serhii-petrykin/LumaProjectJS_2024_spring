@@ -1,3 +1,5 @@
+
+import CreateAccountPage from "./createAccountPage";
 import { email, password, EMAIL_WISHLIST, PASSWORD_WISHLIST } from "../helpers/testData";
 import HomePage from "./homePage";
 
@@ -14,7 +16,13 @@ class SignInPage {
         getTabDropdown: () => this.page.getByRole('banner').locator('button').filter({ hasText: 'Change' }),
         getDropdownWishList: () => this.page.getByRole('banner').getByText('My Account My Wish List Sign'),
         getSignOutlinck: () => this.page.getByRole('link', { name: 'Sign Out' }),
-        getMessageSignedOut: () => this.page.getByText('You are signed out')
+        getMessageSignedOut: () => this.page.getByText('You are signed out'),
+        getCreateAnAccountButton:() => this.page.locator('div.primary>a[href="https://magento.softwaretestingboard.com/customer/account/create/"]'),
+    }
+
+    async clickCreateAnAccountButton() {
+        await this.locators.getCreateAnAccountButton().click();
+        return new CreateAccountPage(this.page)
     }
 
     async fillFieldEmail() {

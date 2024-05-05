@@ -1,3 +1,5 @@
+import { expect } from "@playwright/test";
+
 //URL
 export const BASE_URL = 'https://magento.softwaretestingboard.com';
 export const WHATS_NEW_PAGE_END_POINT = '/what-is-new.html';
@@ -13,6 +15,8 @@ export const SEARCH_RESULTS_JACKET_PAGE_END_POINT = '/catalogsearch/result/?q=ja
 export const MEN_TOPS_PAGE_END_POINT = '/men/tops-men.html';
 export const SHIPPING_PAGE_END_POINT = '/checkout/#shipping';
 export const RADIANT_TEE_PAGE_END_POINT = '/radiant-tee.html';
+export const CUSTOMER_ACCOUNT_CREATE_END_POINT = '/customer/account/create/';
+export const MY_ACCOUNT_PAGE_END_POINT = '/customer/account/';
 export const RADIANT_TEE_PAGE_REVIEWS_TAB_END_POINT = '/radiant-tee.html#reviews';
 export const BREATHE_EASY_TANK_PAGE_END_POINT = '/breathe-easy-tank.html';
 export const BREATHE_EASY_TANK_PAGE_REVIEWS_TAB_END_POINT = '/breathe-easy-tank.html#reviews';
@@ -35,6 +39,7 @@ export const NAVBAR_URLs_END_POINTS = [
   '/training.html',
   '/sale.html'
 ];
+export const SIGN_IN_END_POINT = '/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/'
 export const GEAR_BAGS_PAGE_END_POINT = '/gear/bags.html';
 
 //test data
@@ -54,7 +59,9 @@ export const MY_WISHLIST_PAGE_ITEM_TEXT = 'Push It Messenger Bag';
 export const MY_WISHLIST_PAGE_HEADER = 'My Wish List';
 export const WOMEN_TOPS_HEADER = 'Tops'
 export const WOMEN_BOTTOMS_HEADER = 'Bottoms';
-export const GEAR_BAGS_HEADER = 'Bags';
+export const SIGN_IN_HEADER = 'Customer Login';
+export const BUTTON_REGISTRATION_TITLE = 'Create an Account';
+export const CREATE_ACCOUNT_PAGE_HEADER = /Create New Customer Account/;
 export const shoppingItem1 = {
   name: "Radiant Tee",
   price: 22.00,
@@ -81,7 +88,12 @@ function generateRandomEmail() {
   return `${mailbox}@${domain}`;
 };
 
-export const EMAIL = generateRandomEmail();
+  function generateRandomNumber() {
+    return Math.random().toString(36).substring(2, 10)
+  }
+
+export const GEN_RANDOM_NUMBER = generateRandomNumber()
+export const EMAIL = generateRandomEmail(); 
 export const MY_ACCOUNT_HEADER = 'My Account';
 export const THANKS_MESSAGE = 'Thank you for registering with Main Website Store.';
 export const EXPECTED_ITEM_STYLE_WOMEN_BOTTOMS = ['Base Layer', 'Basic', 'Capri', 'Compression', 'Leggings', 'Parachute', 'Snug', 'Sweatpants', 'Track Pants'];
