@@ -238,9 +238,9 @@ class HomePage {
     return new RadiantTeePage(this.page);
   }
 
-  // async getFooter() {
-  //   return new Footer(this.page);
-  // }
+  getFooter() {
+    return new Footer(this.page);
+  }
 
   async clickGearMenuItem() {
     await this.locators.getGearMenuItem().click();

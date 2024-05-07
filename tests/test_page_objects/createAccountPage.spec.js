@@ -57,6 +57,7 @@ test.describe('createAccuntPage.spec', () => {
         await createAccountPage.fillPasswordField(`${PASSWORD}${GEN_RANDOM_NUMBER}`)
         await createAccountPage.fillConfirmPasswordField(`${PASSWORD_CONFIRM}${GEN_RANDOM_NUMBER}`)
         await createAccountPage.clickCreateAccountButton()
+        await page.reload()
 
         await expect(page).toHaveURL(BASE_URL + MY_ACCOUNT_PAGE_END_POINT)
         await expect(myAccountPage.locators.getMyAccountHeader()).toHaveText(MY_ACCOUNT_HEADER)
