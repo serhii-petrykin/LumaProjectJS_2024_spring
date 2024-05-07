@@ -5,6 +5,13 @@ class ShoppingCartPage {
     }
     locators = {
         getMoveToWishListLink: () => this.page.getByText('Move to Wishlist'),
+        getAlerMessageAddToWishList: () => this.page.locator(`.page.messages`),
+
+    }
+    async clickMoveToWishListLink() {
+        await this.locators.getMoveToWishListLink().click();
+
+        return this;
     }
 }
 

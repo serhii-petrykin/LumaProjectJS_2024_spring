@@ -1,4 +1,4 @@
-import { email, password } from "../helpers/testData";
+import { email, password, EMAIL_WISHLIST, PASSWORD_WISHLIST } from "../helpers/testData";
 import CreateAccountPage from "./createAccountPage";
 import HomePage from "./homePage";
 
@@ -16,6 +16,7 @@ class SignInPage {
         getDropdownWishList: () => this.page.getByRole('banner').getByText('My Account My Wish List Sign'),
         getSignOutlinck: () => this.page.getByRole('link', { name: 'Sign Out' }),
         getMessageSignedOut: () => this.page.getByText('You are signed out'),
+        getPageHeader: () => this.page.getByRole('heading').first(),
         getCreateAnAccountButton:() => this.page.locator('div.primary>a[href="https://magento.softwaretestingboard.com/customer/account/create/"]'),
     }
 
@@ -33,6 +34,16 @@ class SignInPage {
         await this.locators.getFieldPassword().fill(password);
         return this;
     }
+
+	 async fillEmailField() {
+		await this.locators.getfieldEmail().fill(EMAIL_WISHLIST);
+		return this;
+  }
+
+  async fillPasswordField() {
+		await this.locators.getFieldPassword().fill(PASSWORD_WISHLIST);
+		return this;
+  }
 
     async clickButtonSignIn() {
         await this.locators.getButtonSignIn().click();
