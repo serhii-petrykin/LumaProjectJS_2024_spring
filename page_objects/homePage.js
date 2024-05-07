@@ -22,7 +22,6 @@ import HeroHoodiePage from "./heroHoodiePage.js"
 import TopsWomenPage from "./topsWomenPage.js";
 import FusionBackpack from "./fusionbackpackPage.js";
 import PushItMessengerBagPage from "./pushItMessengerBagPage.js";
-import SignInPage from "./signInPage.js";
 
 class HomePage {
   constructor(page) {
@@ -233,21 +232,16 @@ class HomePage {
     return new GearWatchesPage(this.page);
   }
 
-
-  async clickSignInLink() {
-    await this.locators.getSignInLink().click();
-    return new SignInPage(this.page);
-  }
-
   async clickFirstCardName() {
     await this.locators.getFirstCardImage().click();
 
     return new RadiantTeePage(this.page);
   }
 
-  getFooter() {
-    return new Footer(this.page);
-  }
+  // async getFooter() {
+  //   return new Footer(this.page);
+  // }
+
   async clickGearMenuItem() {
     await this.locators.getGearMenuItem().click();
 
@@ -259,6 +253,7 @@ class HomePage {
 
     return new GearBagsPage(this.page);
   }
+
   async clickOrdersAndReturnsLink() {
     await this.locators.getOrdersAndReturnsLink().click();
 
